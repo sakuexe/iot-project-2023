@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+	* käynnistä tailwindcss komentoriviltä jos
+	teet muutoksia tyyliin HTML:ässä
+	npm run build -- rakentaa uuden css tiedoston kerran
+	npm run watch -- rakentaa uuden css tiedoston aina tallentaessa
+
+	jotta TailwindCSS käyttö on helppoa, lataa VSCode plugin
+	https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss
+	taikka laita extension ikkunan hakuun "tailwind css intellisense"
+	-- Tämä auttaa kirjoittamaan helpommin TailwindCSS luokkia,
+	sillä se antaa ehdotuksia kirjoitettavista luokista.
+	sekä mitä luokat tekevät jos ei ole varma/muista
+	-- TailwindCSS dokumentaatio löytyy osoitteesta
+	https://tailwindcss.com/docs
+*/
+
+.payload-div:nth-child(even) {
+	/* background-color: #b20fff; */
+	@apply bg-neutral-800;
+}

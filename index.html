@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+	<!-- metadata -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>IoT Projekti - Jarkko & Saku</title>
+	<!-- CSS -->
+	<link rel="stylesheet" href="./css/tailwind.css">
+	<!-- JavaScript -->
+	<script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+	<script src="./js/mqtt.js" defer></script>
+</head>
+<body class="bg-neutral-900 text-neutral-100">
+	<div class="max-w-2xl mx-auto">
+		<header class="text-center my-10">
+			<h1 class="font-extrabold">Kahvinkeitin Lämpötila-anturi</h1>
+			<p class="opacity-75">by Jarkko Niemi & Saku Karttunen</p>
+		</header>
+		<section>
+			<div class="mb-3 text-center">
+				<h2 class="text-xl font-bold">Lämpötila:</h2>
+				<p class="text-sm opacity-75">Unit: Celcius</p>
+			</div>
+			<output class="outline outline-blue-700 outline-1 block w-full py-3 px-5">
+				<!-- <div class="payload-div"><p>message: "Hello World!"</p></div>
+				<div class="payload-div"><p>message: "Hello World!"</p></div>
+				<div class="payload-div"><p>message: "Hello World!"</p></div> -->
+			</output>
+		</section>
+	</div>
+</body>
+</html>
