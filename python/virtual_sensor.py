@@ -1,4 +1,5 @@
 import paho.mqtt.client as mqtt
+from random import randint
 import time
 import json
 
@@ -13,10 +14,10 @@ interval = 2
 
 for i in range(1, 11):
 	user_data = {
-		"time" : time.time(),
+		"time" : time.strftime("%H:%M:%S", time.localtime()),
 		"sensor_id" : "SakuK-VirtualSensor-01",
 		"sensor_type" : "VirtualSensor",
-		"sensor_value" : i*10,
+		"temperature" : f"{randint(4, 63)}.{randint(0, 9)}",
 		"message" : "Hello World!"
 	}
 

@@ -18,7 +18,17 @@
 	https://tailwindcss.com/docs
 */
 
+.payload-div {
+	@apply py-4;
+	@apply shadow-lg;
+	@apply px-6
+}
+
 .payload-div:nth-child(even) {
 	/* background-color: #b20fff; */
 	@apply bg-neutral-800;
+}
+
+hr {
+	@apply border-neutral-700;
 }
