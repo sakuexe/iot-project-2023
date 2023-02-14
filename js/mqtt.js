@@ -6,7 +6,7 @@ console.log('ClientID: ' + clientId)
 const host = 'ws://test.mosquitto.org:8080'
 // MQTT topic
 // const topic = 'IoTProjekti/JNSK/kahvinkeitin'
-const topic = '+/A103/+'
+const topic = 'JS/A103/+'
 const htmlOutput = document.querySelector('output')
 const topicElement = document.querySelector('#topic')
 
