@@ -5,7 +5,8 @@ console.log('ClientID: ' + clientId)
 // MQTT broker
 const host = 'ws://test.mosquitto.org:8080'
 // MQTT topic
-const topic = 'IoTProjekti/JNSK/kahvinkeitin'
+// const topic = 'IoTProjekti/JNSK/kahvinkeitin'
+const topic = '+/A103/+'
 const htmlOutput = document.querySelector('output')
 const topicElement = document.querySelector('#topic')
 
@@ -65,8 +66,8 @@ client.on('message', (topic, payloadJSON, packet) => {
 	console.table(payload)
 	dataRivi = document.createElement('div')
 	dataRivi.setAttribute('class', 'payload-div p-2 text-green-500')
-	dataRivi.innerHTML += `<p>Time: <span class="font-semibold">${payload.time}</span></p>`
-	dataRivi.innerHTML += `<p>Temperature: <span class="font-semibold">${payload.temperature}<span>&#8451;</p>`
+	dataRivi.innerHTML += `<p>Time: <span class="font-semibold">${payload.temp}</span></p>`
+	dataRivi.innerHTML += `<p>Temperature: <span class="font-semibold">${payload.mood}<span>&#8451;</p>`
 	htmlOutput.appendChild(dataRivi)
 })
 
