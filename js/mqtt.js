@@ -6,7 +6,7 @@ console.log('ClientID: ' + clientId)
 const host = 'ws://test.mosquitto.org:8080'
 // MQTT topic
 // const topic = 'IoTProjekti/JNSK/kahvinkeitin'
-const topic = 'JS/A103/69'
+const topic = 'JNSK/projekti/testing'
 const htmlOutput = document.querySelector('output')
 const topicElement = document.querySelector('#topic')
 
@@ -57,17 +57,26 @@ client.on('connect', () => {
 
 // kun viesti vastaanotetaan topicilla
 client.on('message', (topic, payloadJSON, packet) => {
+
+  // hae aika jolloin viesti on tullut
+  const currentTime = new Date().toLocaleTimeString('fi-FI')
+
   console.log('Viesti vastaanotettu.')
 	console.log('Topic: ' + topic)
+
   // poista vanhin viesti, kun viestejä on yli 5
   removeOldMessages(5)
+
 	// muutetaan JSON string Javascript objektiksi
 	payload = JSON.parse(payloadJSON.toString())
 	console.table(payload)
+
+  // html elementti jolla näytetään dataa
 	dataRivi = document.createElement('div')
 	dataRivi.setAttribute('class', 'payload-div p-2 text-green-500')
-	dataRivi.innerHTML += `<p>Time: <span class="font-semibold">${payload.temp}</span></p>`
-	dataRivi.innerHTML += `<p>Temperature: <span class="font-semibold">${payload.mood}<span>&#8451;</p>`
+	dataRivi.innerHTML += `<p class="text-sm">Time: <span class="font-semibold">${currentTime}</span></p>`
+	dataRivi.innerHTML += `<p>Temperature: <span class="font-semibold">${payload.object}<span>&#8451;</p>`
+	dataRivi.innerHTML += `<p>Ambient: <span class="font-semibold">${payload.ambient}<span>&#8451;</p>`
 	htmlOutput.appendChild(dataRivi)
 })
 
