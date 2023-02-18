@@ -10,11 +10,12 @@
 
 # production
 # remove this when pushing to production (gh-pages branch)
-# use the following code to push to gh-pages branch
+# use the following code to push/pull to/from gh-pages branch
 # * git subtree push --prefix build origin gh-pages
+# * git subtree pull --prefix build origin gh-pages
 # ! Make sure you are in the root directory of the project
-# when you run this command
-# /build
+# when you run these commands
+/build
 
 # misc
 .DS_Store
