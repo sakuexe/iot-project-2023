@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { FC } from 'react';
 
 interface payloadProps {
@@ -10,8 +9,8 @@ const Payload:FC<payloadProps> = ({payloads}) => {
     payloads.shift();
   }
   return (
-    <div className='payload flex flex-col justify-start'>
-      <ul className='mx-auto shadow-xl'>
+    <div className='payload flex justify-start'>
+      <ul className='mx-auto shadow-xl flex overflow-scroll pb-2 md:flex-col'>
         {/* loop through payloads and add list item for each */}
         {payloads.map(temperatures => (
 

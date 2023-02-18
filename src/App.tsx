@@ -43,11 +43,14 @@ function App() {
   });
 
   return (
-    <div className='App flex flex-col w-full h-screen justify-center gap-y-20'>
+    <div className='App flex flex-col h-screen justify-between gap-y-10'>
       <header className='bg-green-700 py-5 text-center my-8 shadow-lg'>
-        <h1 className='font-extrabold text-xl'>IoT Project 2023</h1>
-        <p>By Jarkko Niemi & Saku Karttunen</p>
-        <h2 className='font-bold text-lg'>{connectionStatus}</h2>
+        <p>Jarkko's and Saku's</p>
+        <h1 className='font-extrabold text-xl'>Coffee's Temperature Sensor</h1>
+        <h2 className='font-bold text-lg'>
+          <span className='font-normal text-base italic'>MQTT status: </span>
+          {connectionStatus}
+        </h2>
       </header>
 
       <section className='max-w-4xl mx-auto grid grid-cols-1 place-content-center md:grid-cols-3'>
@@ -57,6 +60,7 @@ function App() {
 
       <footer className='bg-green-700 py-5 text-center my-8'>
         <p>Made as part of the IoT Project course at HAMK Riihimäki</p>
+        <p>&copy; Jarkko Niemi and Saku Karttunen</p>
       </footer>
     </div>
   );
