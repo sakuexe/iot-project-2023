@@ -9,7 +9,9 @@
 /coverage
 
 # production
-# /build
+# remove this when pushing to production
+# git subtree push --prefix build origin gh-pages
+/build
 
 # misc
 .DS_Store
