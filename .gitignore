@@ -14,7 +14,7 @@
 # * git subtree push --prefix build origin gh-pages
 # ! Make sure you are in the root directory of the project
 # when you run this command
-/build
+# /build
 
 # misc
 .DS_Store
