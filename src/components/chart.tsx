@@ -1,62 +1,60 @@
-import React, { useState } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import Chart from 'chart.js/auto';
 import {CategoryScale} from 'chart.js'; 
 import { Line } from 'react-chartjs-2';
 
 Chart.register(CategoryScale);
 
-const DataChart = () => {
-  const rawData = [
-  {
-    id: 1,
-    year: 2016,
-    objectTemp: 20.4,
-    ambientTemp: 23
-  },
-  {
-    id: 2,
-    year: 2017,
-    objectTemp: 24.4,
-    ambientTemp: 23
-  },
-  {
-    id: 3,
-    year: 2018,
-    objectTemp: 21.4,
-    ambientTemp: 23
-  },
-  {
-    id: 4,
-    year: 2019,
-    objectTemp: 22.4,
-    ambientTemp: 23
-  },
-  {
-    id: 5,
-    year: 2020,
-    objectTemp: 25.6,
-    ambientTemp: 23
-  }
-];
+interface temperatureData {
+  payloads: {
+    object: number,
+    ambient: number,
+    time: string
+  }[]
+}
+
+const DataChart:FC<temperatureData> = ({payloads}) => {
 
 const [chartData, setChartData] = useState({
-  labels: rawData.map((data) => data.year),
+  labels: payloads.map((data) => data.time),
   datasets: [
     {
       label: 'Object temperature',
-      data: rawData.map((data) => data.objectTemp),
+      data: payloads.map((data) => data.object),
       backgroundColor: 'rgba(255, 99, 132, 0.2)',
       borderColor: 'rgba(255, 99, 132, 1)',
       borderWidth: 1,
     },
     {
       label: 'Ambient temperature',
-      data: rawData.map((data) => data.ambientTemp),
+      data: payloads.map((data) => data.ambient),
       backgroundColor: 'rgba(255, 99, 132, 0.2)',
       borderColor: 'rgba(255, 99, 132, 1)',
       borderWidth: 1,
     },
   ]});
+
+  useEffect(() => {
+    setChartData({
+      labels: payloads.map((data) => data.time),
+      datasets: [
+        {
+          label: 'Object temperature',
+          data: payloads.map((data) => data.object),
+          backgroundColor: 'rgba(255, 99, 132, 0.2)',
+          borderColor: 'rgba(255, 99, 132, 1)',
+          borderWidth: 2,
+        },
+        {
+          label: 'Ambient temperature',
+          data: payloads.map((data) => data.ambient),
+          backgroundColor: 'rgba(255, 99, 132, 0.2)',
+          borderColor: '#db8c46aa',
+          borderWidth: 1,
+        },
+      ],
+	})
+}, [payloads]);
 
   return (
     <div className='chart col-span-2'>
@@ -70,10 +68,17 @@ const [chartData, setChartData] = useState({
               display: true,
               text: 'Temperature chart - Unit °C'
             },
+            tooltip: {
+              mode: 'index',
+              intersect: false,
+              backgroundColor : '#000000a1',
+            },
             legend: {
-              display: false,
+              display: true,
+              position: 'bottom',
+              fullSize: false,
             }
-          }
+          },
       }}/>
     </div>
   );
