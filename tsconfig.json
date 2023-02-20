@@ -24,5 +24,7 @@
     "src",
     "src/components",
     "src/hooks",
+    "src/images",
+    "src/custom.d.ts",
   ]
 }
