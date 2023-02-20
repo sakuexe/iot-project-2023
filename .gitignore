@@ -15,7 +15,7 @@
 # * git subtree pull --prefix build origin gh-pages
 # ! Make sure you are in the root directory of the project
 # when you run these commands
-# /build
+/build
 
 # misc
 .DS_Store
