@@ -12,7 +12,7 @@ const topic: string = 'JNSK/projekti/testing';
 const options: object = {
   keepalive: 60,
   clientId: clientId,
-  protocolId: 'MQTT',
+  protocolID: 'MQTT',
   protocolVersion: 4,
   clean: true,
   reconnectPeriod: 1000,

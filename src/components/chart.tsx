@@ -2,14 +2,15 @@ import React, { FC, useState, useEffect } from 'react';
 import Chart from 'chart.js/auto';
 import {CategoryScale} from 'chart.js'; 
 import { Line } from 'react-chartjs-2';
+import currentColor from './component_functions';
 
 Chart.register(CategoryScale);
 
 interface temperatureData {
   payloads: {
-    object: number,
-    ambient: number,
-    time: string
+    readonly object: number,
+    readonly ambient: number,
+    readonly time: string
   }[]
 }
 
@@ -22,7 +23,7 @@ const [chartData, setChartData] = useState({
       label: 'Object temperature',
       data: payloads.map((data) => data.object),
       backgroundColor: 'rgba(255, 99, 132, 0.2)',
-      borderColor: 'rgba(255, 99, 132, 1)',
+      borderColor: '#cfa125aa',
       borderWidth: 1,
     },
     {
@@ -35,14 +36,20 @@ const [chartData, setChartData] = useState({
   ]});
 
   useEffect(() => {
+    // Get the last message from the payloads array
+    // for easier access
+    const lastMessage = payloads[payloads.length - 1];
+
     setChartData({
       labels: payloads.map((data) => data.time),
       datasets: [
         {
           label: 'Object temperature',
           data: payloads.map((data) => data.object),
-          backgroundColor: 'rgba(255, 99, 132, 0.2)',
-          borderColor: 'rgba(255, 99, 132, 1)',
+          backgroundColor: 
+            currentColor(lastMessage.object, 'background'),
+          borderColor: 
+            currentColor(lastMessage.object, 'border'),
           borderWidth: 2,
         },
         {
